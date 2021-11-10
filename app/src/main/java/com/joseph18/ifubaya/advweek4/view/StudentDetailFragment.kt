@@ -7,13 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.joseph18.ifubaya.advweek4.R
 import com.joseph18.ifubaya.advweek4.model.util.loadImage
 import com.joseph18.ifubaya.advweek4.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.fragment_student_detail.*
-import kotlinx.android.synthetic.main.fragment_student_list.*
-import kotlinx.android.synthetic.main.student_list_item.view.*
 
 class StudentDetailFragment : Fragment() {
     private lateinit var viewModel :DetailViewModel
