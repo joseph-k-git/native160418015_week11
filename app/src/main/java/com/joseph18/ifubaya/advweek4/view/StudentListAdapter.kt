@@ -12,7 +12,8 @@ import com.joseph18.ifubaya.advweek4.model.Student
 import com.joseph18.ifubaya.advweek4.model.util.loadImage
 import kotlinx.android.synthetic.main.student_list_item.view.*
 
-class StudentListAdapter(val studentList :ArrayList<Student>): RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>()
+class StudentListAdapter(val studentList :ArrayList<Student>): RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>(),
+        ButtonDetailClickListener
 {
     class StudentViewHolder(val view: StudentListItemBinding): RecyclerView.ViewHolder(view.root)
 
@@ -26,6 +27,7 @@ class StudentListAdapter(val studentList :ArrayList<Student>): RecyclerView.Adap
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         holder.view.student = studentList[position]
+        holder.view.listener = this
 
         /*
         holder.view.txtId.text = studentList[position].id
@@ -42,6 +44,11 @@ class StudentListAdapter(val studentList :ArrayList<Student>): RecyclerView.Adap
 
     override fun getItemCount(): Int {
         return studentList.size
+    }
+
+    override fun onButtonDetailClick(view: View) {
+        val action = StudentListFragmentDirections.actionStudentListFragmentToStudentDetailFragment(studentId = view.tag.toString())
+        Navigation.findNavController(view).navigate(action)
     }
 
     fun updateStudentList(newStudentList :List<Student>) {
