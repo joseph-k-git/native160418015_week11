@@ -38,7 +38,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    tools:srcCompat="@tools:sample/avatars"
+
+                    android:imageUrl="@{student.photoUrl}"
+                    android:progressBar="@{progressBar}" />
 
                 <TextView
                     android:id="@+id/txtId"
